@@ -1,0 +1,27 @@
+{
+	"name": "think201/echoza-sdk-php-laravel",
+	"homepage": "http://echoza.com",
+	"description": "With Echoza, you can monitor the performance of your application and even analyze the root cause before fixing the errors. Get real-time notifications when something breaks down even before your customers report on it.",
+	"keywords": ["laravel", "laravel 5", "echoza", "think201", "sdk", "error", "reporting", "echo"],
+	"type": "library",
+	"license": "MIT",
+	"authors": [{
+		"name": "Think201",
+		"homepage": "http://think201.com"
+	}],
+	"minimum-stability": "stable",
+	"require": {
+		"php": ">=5.5",
+		"guzzlehttp/guzzle": "~5.3|~6.0.1|~6.1",
+		"guzzlehttp/psr7": "~1.0",
+		"guzzlehttp/promises": "~1.0",
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4.0|~5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Think201\\Echoza\\": "src/"
+		}
+	}
+}
