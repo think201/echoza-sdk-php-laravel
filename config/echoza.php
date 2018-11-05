@@ -22,7 +22,7 @@ return [
 	|
 	 **/
 
-	'app_id' => env('ECHOZA_APP_ID', ''),
+	'echoza_app_id' => env('ECHOZA_APP_ID', ''),
 
 	/**
 	|--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ return [
 	|
 	 **/
 
-	'app_secret' => env('ECHOZA_APP_SECRET', ''),
+	'echoza_app_secret' => env('ECHOZA_APP_SECRET', ''),
 
 	/**
 	|--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return [
 	|
 	 **/
 
-	'app_version' => env('ECHOZA_APP_VERSION', ''),
+	'echoza_version' => env('ECHOZA_APP_VERSION'),
 
 	/**
 	|--------------------------------------------------------------------------
@@ -55,5 +55,5 @@ return [
 	|
 	 **/
 
-	'echoza_endpoint' => env('ECHOZA_ENDPOINT', ''),
+	'echoza_endpoint' => env('ECHOZA_ENDPOINT'),
 ];

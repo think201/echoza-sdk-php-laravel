@@ -23,10 +23,10 @@ class EchozaServiceProvider extends ServiceProvider {
 	public function register() {
 
 		$this->app->singleton(Echoza::class, function () {
-			return new Echoza();
+			return new Classes\Echoza();
 		});
 
-		$this->app->alias(Echoza::class, 'echoza');
+		$this->app->alias(Classes\Echoza::class, 'echoza');
 	}
 
 	protected function setupConfig(Container $app) {
