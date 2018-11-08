@@ -4,7 +4,7 @@ return [
 
 	/**
 	|--------------------------------------------------------------------------
-	| API Key
+	| Echoza Enabled
 	|--------------------------------------------------------------------------
 	|
 	| You can find your API key on your Echoza dashboard.
@@ -15,21 +15,21 @@ return [
 
 	/**
 	|--------------------------------------------------------------------------
-	| API Key
+	| APP Key
 	|--------------------------------------------------------------------------
 	|
-	| You can find your API key on your Echoza dashboard.
+	| You can find your APP key on your Echoza dashboard.
 	|
 	 **/
 
-	'echoza_app_id' => env('ECHOZA_APP_ID', ''),
+	'echoza_app_key' => env('ECHOZA_APP_KEY', ''),
 
 	/**
 	|--------------------------------------------------------------------------
-	| App Type
+	| App Secret
 	|--------------------------------------------------------------------------
 	|
-	| Set the type of application executing the current code.
+	| You can find your APP Secret on your Echoza dashboard.
 	|
 	 **/
 

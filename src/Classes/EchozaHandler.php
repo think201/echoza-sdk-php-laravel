@@ -3,7 +3,7 @@ namespace Think201\Echoza\Classes;
 
 class EchozaHandler {
 
-	public static function sendData($error, $custom_data, $echo_slug) {
+	public static function callEchozaApi($body) {
 
 		$endpoint = config('echoza.echoza_endpoint', 'http://app.echoza.com');
 
@@ -15,38 +15,62 @@ class EchozaHandler {
 
 		$api_secret_key = config('echoza.echoza_app_secret');
 
-		$echoza_app_id = config('echoza.echoza_app_id');
+		// Headers
 
-		$body['echoza_app_id'] = $echoza_app_id;
-		$body['echoza_slug'] = $echo_slug;
+		$headers = [
+			'Authorization' => 'Bearer ' . $api_secret_key,
+			'Accept' => 'application/json',
+		];
 
-		$body['headers'] = "";
+		$client = new \GuzzleHttp\Client();
+
+		$request = $client->post($url, array(
+			'json' => $body,
+			'headers' => $headers,
+		));
+
+		$response = $request->getBody();
+
+		return;
+	}
+
+	private static function apiBody() {
+
+		$request = request();
+
+		$body = [];
+
+		// Body for the Request
+
+		$body['echoza_app_key'] = config('echoza.echoza_app_key');
+
+		$body['echo_slug'] = 'error';
+
+		$body['title'] = "Not Defined";
+
+		$body['headers'] = $request->header();
 
 		$body['metadata'] = EchozaMetadata::metaInfo();
 
-		$body['customdata'] = $custom_data;
+		$body['customdata'] = '';
 
-		$body['data'] = $error;
+		$body['data'] = '';
 
-		$body['stack_trace'] = " This is stack trace";
+		$body['stack_trace'] = [];
 
-		$client = new \GuzzleHttp\Client([
-			'headers' => [
-				'Authorization' => 'Bearer ' . $api_secret_key,
-			],
-			'verify' => false,
-		]);
+		$body['type'] = 'error';
 
-		$response = $client->post($url, [
-			'json' => $body,
-			'verify' => false,
-		]);
+		$body['priority'] = 'medium';
 
-		$status = $response->getStatusCode();
-
-		dd("Hello");
-
-		return $status;
+		return $body;
 	}
 
+	public static function sendData($body) {
+
+		$defaultBody = self::apiBody();
+
+		$body = array_merge($defaultBody, $body);
+
+		self::callEchozaApi($body);
+	}
 }
