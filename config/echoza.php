@@ -2,14 +2,14 @@
 
 return [
 
-	/**
+	/*
         |--------------------------------------------------------------------------
         | Echoza Enabled
         |--------------------------------------------------------------------------
         |
 	| You can find your API key on your Echoza dashboard.
 	|
-	 **/
+	*/
 
 	'echoza_enabled' => env('ECHOZA', false),
 
